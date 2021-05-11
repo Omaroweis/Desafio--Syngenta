@@ -33,16 +33,19 @@ def alteraCores(img):
     altura, largura, cores = img.shape;
     for i in range(0, altura):
         for j in range(0, largura):
-            
-            
-            red = img.item(i,j,2);
-            green = img.item(i,j,1);
-            blue = img.item(i,j,0);
-            if red==0 and green==0 and blue==0:
-                img.itemset((i,j,1),250); #green
-                img.itemset((i,j,0),250); # blue
-                img.itemset((i,j,2),250); #red
-            
+            if img.item(i,j,0) ==0 and img.item(i,j,0) ==0 and img.item(i,j,2)==0:
+
+                img.itemset((i,j,0), 0);
+                img.itemset((i,j,1), 0);
+                img.itemset((i,j,2), 0);
+            if img.item(i, j, 0) == 255 and img.item(i, j, 0) == 255 and img.item(i, j, 2) == 255:
+                img.itemset((i, j, 0), 0);
+                img.itemset((i, j, 1), 192);
+                img.itemset((i, j, 2), 96);
+            else:
+                img.itemset((i, j, 0), 0);
+                img.itemset((i, j, 1), 192);
+                img.itemset((i, j, 2), 96);
     printImagem(img);
             
             
