@@ -10,7 +10,6 @@ import numpy as np;
 def main():
     img = cv2.imread("Syngenta.BMP",1);
     contaVerdes(img);
-    alteraCores(img)
 def printImagem(img):
     from matplotlib import pyplot as plt;
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -23,10 +22,8 @@ def contaVerdes(img):
     for i in range(0, altura):
         for j in range (0, largura):
             aux = img[i][j];
-            if aux[2] == 96:
+            if aux[2] == 96: #como só existem 3 canais de cor, (branco(255,255,255), preto(0,0,0) e verde, só precisa verificar uma escala do RGB
                 cont_verdes+=1
-            else:
-                cont_brancos+=1;
     print("verdes: "+str(cont_verdes));
 
 def alteraCores(img):
